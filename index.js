@@ -7,10 +7,6 @@ var app = express();
 app.use(express.static('public'));
 server.listen(80, '0.0.0.0');
 
-//app.get
-//playlist(queryUrl)
-
-
 function playlist(url) {
 
   'use strict';
@@ -40,4 +36,11 @@ function playlist(url) {
   });
 
   video.on('next', playlist);
+  console.log('done');
 }
+
+app.get('/', function(req, res) {
+  res.send('Processing Request...');
+  var url = req.query.q;
+  playlist(url);
+});
