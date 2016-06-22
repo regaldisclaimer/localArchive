@@ -3,7 +3,7 @@ var fs   = require('fs');
 var ytdl = require('youtube-dl');
 var express = require('express');
 var app = express();
-
+var server = require('http').createServer(app);
 app.use(express.static('public'));
 server.listen(80, '0.0.0.0');
 
